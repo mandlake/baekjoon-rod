@@ -1,11 +1,8 @@
 package com.rod.api.article;
 
 import com.rod.api.border.Board;
-import com.rod.api.user.User;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDate;
 
 @Entity(name = "article")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -33,10 +30,6 @@ public class Article {
     @ManyToOne
     @JoinColumn(name = "board_id")
     private Board board;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
     @Builder(builderMethodName = "builder")
     public Article(Long id, String title, String content, String writer, String registerDate) {

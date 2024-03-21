@@ -4,7 +4,6 @@ import com.rod.api.article.Article;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "board")
@@ -25,10 +24,11 @@ public class Board {
     private String boardType;
 
     @OneToMany(mappedBy = "board")
-    private List<Article> articles = new ArrayList<>();
+    private List<Article> articles;
 
     @Builder(builderMethodName = "builder")
-    public Board(String boardName, String boardType) {
+    public Board(Long id, String boardName, String boardType) {
+        this.id = id;
         this.boardName = boardName;
         this.boardType = boardType;
     }

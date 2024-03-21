@@ -1,10 +1,9 @@
 package com.rod.api.user;
 
-import com.rod.api.article.Article;
+import com.rod.api.order.Basket;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name="users")
@@ -47,7 +46,7 @@ public class User {
     private double weight;
 
     @OneToMany(mappedBy = "user")
-    private List<Article> articles = new ArrayList<>();
+    private List<Basket> baskets;
 
     @Builder(builderMethodName = "builder")
     public User(Long id, String username, String password,
