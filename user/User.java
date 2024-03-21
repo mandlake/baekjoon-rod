@@ -22,6 +22,7 @@ public class User {
     private String job;
     private double height;
     private double weight;
+    //remote 변경 확인
 
     @Builder(builderMethodName = "builder")
     public User(Long id, String username, String password,
