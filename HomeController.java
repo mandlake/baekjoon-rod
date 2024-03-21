@@ -10,7 +10,7 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 public class HomeController {
-    private final HomeService service;
+    private final HomeServiceImpl service;
     @RequestMapping("/")
     public String hello() {
         return "Welcome To Spring Boot !";
