@@ -1,7 +1,11 @@
 package com.rod.api.user;
 
+import com.rod.api.article.Article;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name="users")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -9,20 +13,41 @@ import lombok.*;
 @Setter
 @ToString(exclude = {"id"})
 public class User {
+
     @Id
     @Column(name="id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "ssn")
     private String ssn;
+
+    @Column(name = "phoneNumber")
     private String phoneNumber;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "job")
     private String job;
+
+    @Column(name = "height")
     private double height;
+
+    @Column(name = "weight")
     private double weight;
-    //remote 변경 확인
+
+    @OneToMany(mappedBy = "user")
+    private List<Article> articles = new ArrayList<>();
 
     @Builder(builderMethodName = "builder")
     public User(Long id, String username, String password,

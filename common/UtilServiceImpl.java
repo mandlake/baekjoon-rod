@@ -1,10 +1,9 @@
 package com.rod.api.common;
 
-public class UtilServiceImpl implements UtilService {
+import org.springframework.stereotype.Service;
 
-    private static UtilService instance = new UtilServiceImpl();
-    private UtilServiceImpl(){}
-    public static UtilService getInstance(){return instance;}
+@Service
+public class UtilServiceImpl implements UtilService {
 
     @Override
     public int createRandomInteger(int start, int gapBetweenStartAndEnd) {
