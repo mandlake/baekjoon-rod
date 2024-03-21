@@ -5,6 +5,8 @@ import com.rod.api.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Entity(name = "article")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
