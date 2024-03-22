@@ -6,7 +6,7 @@ import lombok.*;
 
 import java.util.List;
 
-@Entity(name = "game")
+@Entity(name = "games")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"id"})
@@ -14,7 +14,7 @@ public class Game {
 
     @Id
     @Column(name="id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "gameName")

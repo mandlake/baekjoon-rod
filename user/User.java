@@ -15,7 +15,7 @@ public class User {
 
     @Id
     @Column(name="id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "username")
@@ -26,9 +26,6 @@ public class User {
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "ssn")
-    private String ssn;
 
     @Column(name = "phoneNumber")
     private String phoneNumber;
@@ -50,14 +47,13 @@ public class User {
 
     @Builder(builderMethodName = "builder")
     public User(Long id, String username, String password,
-                String name, String ssn, String phoneNumber,
+                String name, String phoneNumber,
                 String address, String job,
                 double height, double weight) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
-        this.ssn = ssn;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.job = job;

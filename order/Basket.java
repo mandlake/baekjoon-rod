@@ -5,7 +5,7 @@ import com.rod.api.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "basket")
+@Entity(name = "baskets")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"id"})
@@ -13,7 +13,7 @@ public class Basket {
 
     @Id
     @Column(name="id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "price")

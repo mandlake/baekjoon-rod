@@ -10,12 +10,12 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 public class HomeController {
-    private final HomeServiceImpl service;
+
     @RequestMapping("/")
     public String hello() {
         return "Welcome To Spring Boot !";
     }
-    @PostMapping("/name")
+    @PostMapping("/api/name")
     public Map<String, ?> name(@RequestBody Map<String, ?> map) {
         String name = (String)map.get("name");
         System.out.println("리퀘스트가 가져온 이름 : " + name);

@@ -4,7 +4,7 @@ import com.rod.api.border.Board;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "article")
+@Entity(name = "articles")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"id"})
@@ -12,7 +12,7 @@ public class Article {
 
     @Id
     @Column(name="id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "title")
