@@ -17,12 +17,16 @@ public class UserController {
 
     @PostMapping(path = "/api/login")
     public Map<String, ?> id(@RequestBody Map<String, ?> map) {
-        String id = (String)map.get("id");
-        String pw = (String)map.get("pw");
-        System.out.println("리퀘스트가 가져온 아이디 : " + id);
-        Map<String, String> respMap = new HashMap<>();
-        respMap.put("id", id);
-        respMap.put("pw", pw);
+        Map<String, Messenger> respMap = new HashMap<>();
+        User optUser = repository.findByUsername((String) map.get("id")).orElse(null);
+        if(optUser == null) {
+            respMap.put("message", Messenger.FAIL);
+        } else if(!optUser.getPassword().equals(map.get("pw"))) {
+            respMap.put("message", Messenger.WRONG_PASSWORD);
+        } else {
+            respMap.put("message", Messenger.SUCCESS);
+        }
+
         return respMap;
     }
 
