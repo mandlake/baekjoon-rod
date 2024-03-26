@@ -31,7 +31,7 @@ public class UserController {
     }
 
     @PostMapping(path = "/api/join")
-    private Map<String, ?> join(@RequestBody Map<String, ?> map) {
+    public Map<String, ?> join(@RequestBody Map<String, ?> map) {
         Map<String, Messenger> respMap = new HashMap<>();
         repository.save(User.builder()
                 .username((String) map.get("id"))
