@@ -49,7 +49,7 @@ public class User {
     public User(Long id, String username, String password,
                 String name, String phoneNumber,
                 String address, String job,
-                double height, double weight) {
+                double height, double weight, List<Basket> baskets) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -59,5 +59,6 @@ public class User {
         this.job = job;
         this.height = height;
         this.weight = weight;
+        this.baskets = baskets;
     }
 }

@@ -1,23 +1,26 @@
 package com.rod.api.article;
 
+
 import com.rod.api.common.AbstractService;
 import com.rod.api.messanger.Messenger;
-import lombok.Getter;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 @Service
 @RequiredArgsConstructor
 public class ArticleServiceImpl extends AbstractService<Article> {
+
     private final ArticleRepository repository;
 
     @Override
-    public Messenger save(Article o) {
-        return null;
+    public Messenger save(Article t) {
+        throw new UnsupportedOperationException("Unimplemented method 'save'");
     }
 
     @Override
@@ -27,22 +30,22 @@ public class ArticleServiceImpl extends AbstractService<Article> {
 
     @Override
     public Optional<Article> findById(Long id) {
-        return Optional.empty();
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
     }
 
     @Override
     public String count() {
-        return null;
+        throw new UnsupportedOperationException("Unimplemented method 'count'");
     }
 
     @Override
     public Optional<Article> getOne(String id) {
-        return Optional.empty();
+        throw new UnsupportedOperationException("Unimplemented method 'getOne'");
     }
 
     @Override
-    public String delete(Article o) {
-        return null;
+    public String delete(Article t) {
+        throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     @Override
@@ -52,6 +55,8 @@ public class ArticleServiceImpl extends AbstractService<Article> {
 
     @Override
     public Boolean existsById(Long id) {
-        return null;
+        throw new UnsupportedOperationException("Unimplemented method 'existsById'");
     }
+
+
 }
