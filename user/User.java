@@ -1,5 +1,6 @@
 package com.rod.api.user;
 
+import com.rod.api.article.Article;
 import com.rod.api.order.Basket;
 import jakarta.persistence.*;
 import lombok.*;
@@ -44,6 +45,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Basket> baskets;
+
+    @OneToMany(mappedBy = "writer")
+    private List<Article> articles;
 
     @Builder(builderMethodName = "builder")
     public User(Long id, String username, String password,

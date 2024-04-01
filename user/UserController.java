@@ -2,17 +2,16 @@ package com.rod.api.user;
 
 import com.rod.api.messanger.Messenger;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequiredArgsConstructor
 public class UserController {
+    private final UserServiceImpl service;
     private final UserRepository repository;
 
     @PostMapping(path = "/api/login")
@@ -46,5 +45,21 @@ public class UserController {
         System.out.println(respMap);
         respMap.put("message", Messenger.SUCCESS);
         return respMap;
+    }
+
+    @GetMapping(path = "/api/all-users")
+    public Map<String, Object> findAll() throws SQLException {
+        Map<String, Object> map = new HashMap<>();
+
+        List<User> list = service.findAll();
+        if(list.isEmpty()) {
+            map.put("message", Messenger.FAIL);
+        } else {
+            map.put("message", Messenger.SUCCESS);
+            System.out.println("리스트 사이즈 : "+list.size());
+        }
+        map.put("result", list);
+        System.out.println(map.get("result"));
+        return map;
     }
 }
