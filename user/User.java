@@ -1,7 +1,6 @@
 package com.rod.api.user;
 
 import com.rod.api.article.Article;
-import com.rod.api.order.Basket;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -43,9 +42,6 @@ public class User {
     @Column(name = "weight")
     private double weight;
 
-    @OneToMany(mappedBy = "user")
-    private List<Basket> baskets;
-
     @OneToMany(mappedBy = "writer")
     private List<Article> articles;
 
@@ -53,7 +49,7 @@ public class User {
     public User(Long id, String username, String password,
                 String name, String phoneNumber,
                 String address, String job,
-                double height, double weight, List<Basket> baskets) {
+                double height, double weight) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -63,6 +59,5 @@ public class User {
         this.job = job;
         this.height = height;
         this.weight = weight;
-        this.baskets = baskets;
     }
 }
